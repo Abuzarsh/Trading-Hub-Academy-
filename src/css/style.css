@@ -1,0 +1,705 @@
+/* General Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap");
+
+* {
+  font-family: "Lexend", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Lexend", sans-serif;
+}
+
+/* Styles for the login popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+.popup-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5b97c9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.app {
+  text-align: center;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(to right, blue, black, yellow);
+  padding: 20px;
+  color: white;
+  font-family: "Lexend", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, blue, black, yellow);
+  padding: 50px 20px;
+  font-family: "Lexend", sans-serif;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 36px;
+  color: #e7d533;
+}
+
+.hero .subheading {
+  font-size: 20px;
+  color: #666;
+}
+
+.features {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.action-buttons .btn {
+  background-color: #da4242;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.action-buttons .btn.secondary {
+  background-color: #6c757d;
+}
+
+/* Footer */
+.footer {
+  background-color: #282c34;
+  color: white;
+  /* padding: 10px 0;
+  margin-top: 50px; */
+}
+
+/* Header */
+/* Header with circular-edged rectangle */
+header {
+  background-color: #fdfdfd;
+  /* Dark background color */
+  padding: 15px 40px;
+  /* Padding for the header */
+  border-radius: 25px;
+  /* Circular-edged rectangle (rounded corners) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Optional: Adds shadow for a subtle 3D effect */
+}
+
+/* Rounded (Oval) Login button */
+.login-btn {
+  background-color: #db3434;
+  /* Button color */
+  color: white;
+  /* Text color */
+  border: none;
+  /* No border */
+  padding: 12px 30px;
+  /* Padding to make it oval */
+  font-size: 16px;
+  /* Font size */
+  border-radius: 30px;
+  /* Oval rounded edges */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for login button */
+.login-btn:hover {
+  background-color: white;
+  /* Button background color on hover */
+  color: #f0ec15;
+  /* Text color on hover */
+  transform: scale(1.05);
+  /* Slightly enlarge the button on hover */
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero-section {
+  display: flex;
+  /* Flexbox to align items horizontally */
+  justify-content: flex-start;
+  /* Align content to the left */
+  align-items: center;
+  /* Center content vertically */
+  padding: 60px 100px;
+  /* Padding to space out content */
+  border-radius: 25px;
+  /* Circular-edged rectangle for the hero section */
+  background-color: #2e3133;
+  background-image: linear-gradient(160deg, #262829 0%, #5b97c9 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Optional shadow */
+  height: 500px;
+  /* Set the height of the hero section */
+  position: relative;
+  overflow: hidden;
+  /* Ensures content stays inside the bounds */
+}
+
+/* Left content of the Hero Section */
+.hero-left-content {
+  flex: 1;
+  /* Content takes up remaining space */
+  color: #fbfbfc;
+  /* Text color */
+  display: flex;
+  /* Use flexbox to align items vertically */
+  flex-direction: column;
+  /* Arrange items vertically */
+  justify-content: center;
+  /* Vertically center content */
+  align-items: center;
+  /* Horizontally center content */
+  text-align: center;
+  /* Center the text */
+}
+
+.hero-left-content h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.hero-left-content p {
+  font-size: 18px;
+  margin-top: 10px;
+  line-height: 1.5;
+  max-width: 600px;
+  /* Optional: set max width to control paragraph width */
+  margin: 0 auto;
+  /* Center the paragraph text */
+}
+
+/* Buttons inside Hero Section */
+.hero-btns {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  /* Space between buttons */
+  justify-content: center;
+  /* Center the buttons horizontally */
+}
+
+.hero-btn {
+  background-color: #db3434;
+  /* Button background color */
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 5px;
+  /* Rectangular edges */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: white;
+  color: #dbd834;
+  transform: scale(1.05);
+  /* Slightly enlarge the button on hover */
+}
+
+/* Right Section Background Image */
+.hero-right-bg {
+  flex: 1;
+  /* Right side takes remaining space */
+  /* background-image: url('your-background-image.jpg');  */
+  background-size: cover;
+  /* Cover the whole area */
+  background-position: center;
+  /* Center the background image */
+  height: 100%;
+  border-radius: 25px;
+  /* Rounded corners for the right part */
+}
+
+/* Course Curriculum Section */
+.course-curriculum {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  background-color: #f7f7f7;
+}
+
+/* Container to hold all curriculum boxes */
+.curriculum-container {
+  display: flex;
+  flex-direction: column;
+  /* Stack boxes vertically */
+  gap: 20px;
+  width: 100%;
+  /* Adjust the width as needed */
+}
+
+/* Box Styles */
+.curriculum-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(47, 74, 105, 0.1);
+  padding: 20px;
+  gap: 20px;
+  width: 100%;
+  /* Full width for each box */
+}
+
+.curriculum-img {
+  width: 600px;
+  /* Set the width of the image */
+  height: 350px;
+  /* Set the height of the image */
+  border-radius: 8px;
+  /* Optional, to match the rounded-md from Tailwind */
+  border: 2px solid #ffffff;
+  /* Optional, to match the border from Tailwind */
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.3);
+  /* Optional, for the shadow effect */
+}
+
+.curriculum-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.curriculum-text h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.curriculum-text p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Styles for Left and Right Boxes */
+.curriculum-box.left {
+  flex-direction: row;
+  /* Image on left, text on right */
+}
+
+.curriculum-box.right {
+  flex-direction: row-reverse;
+  /* Image on right, text on left */
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+  .curriculum-container {
+    width: 90%;
+  }
+
+  .curriculum-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .curriculum-box img {
+    width: 150px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .curriculum-box {
+    flex-direction: column; /* Stack the elements vertically on mobile */
+    align-items: stretch; /* Align the items to the full width */
+    height: 50%; /* Reduce height to 50% */
+  }
+
+  .curriculum-img {
+    display: none; /* Hide the image on mobile screens */
+  }
+
+  .course-box {
+    max-width: 100%; /* Ensure course box takes full width on mobile */
+    margin: 0; /* Remove any auto margin */
+  }
+
+  .price {
+    flex-direction: column; /* Stack price details vertically */
+  }
+
+  .price-icon,
+  .price-value,
+  .discount {
+    font-size: 1.5rem; /* Adjust font size for better readability */
+  }
+
+  .price-value {
+    margin-top: 10px; /* Add margin for spacing */
+  }
+}
+
+/* Testimonial */
+
+.testimonial-container {
+  padding: 3rem;
+  text-align: center;
+  background-color: #ffff;
+}
+
+.testimonial-header {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.testimonial-description {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.testimonial-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #262829 0%, #5b97c9 100%);
+  padding: 2rem;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+}
+
+.testimonial-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fcfcfc;
+}
+
+.testimonial-role {
+  font-size: 1.1rem;
+  color: #f5f104;
+  margin-bottom: 1rem;
+}
+
+.testimonial-quote {
+  font-size: 1rem;
+  color: #dde2ad;
+  margin-bottom: 1.5rem;
+}
+
+.quote-icon {
+  font-size: 1.5rem;
+  color: #777;
+  margin-right: 0.5rem;
+}
+
+.testimonial-rating {
+  font-size: 1.2rem;
+}
+
+.star,
+.star-half,
+.star-empty {
+  color: #ffbf00;
+  margin: 0 2px;
+}
+
+.star-empty {
+  color: #ddd;
+}
+
+/* Solution.css */
+
+/* General article styling */
+article {
+  --img-scale: 1.001;
+  --title-color: rgb(62, 45, 212)
+  /* Font color */
+  --link-icon-translate: -20px;
+  --link-icon-opacity: 0;
+  position: relative;
+  border-radius: 16px;
+  box-shadow: none;
+  background: linear-gradient(45deg, #1a1a1a, #000000);
+  /* Black-greyish gradient */
+  transform-origin: center;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+article h2 {
+  margin: 0 0 18px 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: #0056b3;
+  transition: color 0.3s ease-out;
+}
+
+article h3 {
+  color: white;
+  /* White color for the subtitle */
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+article p {
+  color: white;
+  /* White color for the description text */
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+article img {
+  max-width: 100%;
+  transform-origin: center;
+  transform: scale(var(--img-scale));
+  transition: transform 0.4s ease-in-out;
+}
+
+.article-body {
+  padding: 24px;
+}
+
+article a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #28666e;
+}
+
+article a:focus {
+  outline: 1px dotted #28666e;
+}
+
+article a .icon {
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+  transform: translateX(var(--link-icon-translate));
+  opacity: var(--link-icon-opacity);
+  transition: all 0.3s;
+}
+
+article:hover,
+article:focus {
+  --img-scale: 1.1;
+  --title-color: #28666e;
+  --link-icon-translate: 0;
+  --link-icon-opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.articles {
+  display: grid;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+  gap: 24px;
+}
+
+@media screen and (max-width: 960px) {
+  article {
+    container: card/inline-size;
+  }
+
+  .article-body p {
+    display: none;
+  }
+}
+
+@container card (min-width: 380px) {
+  .article-wrapper {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 26px;
+  }
+
+  .article-body {
+    padding-left: 0;
+  }
+
+  figure {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  figure img {
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+
+/* Add this in your custom CSS file */
+@keyframes thickToThin {
+  0% {
+    font-weight: 900; /* Start with thick font */
+    color: #3c5dcb; /* Blue */
+  }
+  25% {
+    font-weight: 700; /* Slightly thinner */
+    color: #3B82F6; /* Lighter blue */
+  }
+  50% {
+    font-weight: 500; /* Midpoint, thinner */
+    color: #60A5FA; /* Even lighter blue */
+  }
+  75% {
+    font-weight: 400; /* Thinner still */
+    color: #93C5FD; /* Very light blue */
+  }
+  100% {
+    font-weight: 300; /* End with thin font */
+    color: #DCE7FF; /* Pale blue */
+  }
+}
+
+/* Individual Animations for each letter */
+/* Individual Animations for each letter */
+.animate-thick-to-thin-1 {
+  animation: thickToThin 3s ease-in-out infinite; /* Increased duration for smoothness */
+}
+
+.animate-thick-to-thin-2 {
+  animation: thickToThin 3s ease-in-out infinite 0.5s; /* Delayed for second letter */
+}
+
+.animate-thick-to-thin-3 {
+  animation: thickToThin 3s ease-in-out infinite 1s; /* Delayed for third letter */
+}

@@ -1,53 +1,57 @@
-const express = require("express");
-const passport = require("passport");
-const session = require("./config/session");
-const authRoutes = require("./routes/authRoutes");
-const otpRoutes = require("./routes/otpRoutes");
-const paymentRoutes = require("./routes/paymentRoutes");
-const userRoutes = require("./routes/UserRoutes");
-const courseRoutes = require("./routes/courseRoutes");
-const protectedMiddleware = require("./middleware/auth");
-const dotenv = require("dotenv");
-const { connectDB } = require("./config/DbConnection");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
+import React, { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AddToCart from "./components/AddToCard";
+import Paydirect from "./components/pay-direct";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import FailedPaymentPage from "./pages/FailedPaymentPage";
 
-require("./config/passport");
-require("./config/session");
+import logo from "./assets/logo.png";
+import TermsAndCondition from "./components/TermsAndCondition";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import PaymentSuccessPage from "./pages/PaymentSuccessPage";
+import AdminDashboard from "./components/Admin/AdminDashboard";
 
-dotenv.config();
+const App = () => {
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "icon";
+    link.href = logo; // Use the imported image
+    document.head.appendChild(link);
 
-const app = express();
+    // Cleanup to remove the favicon on unmount (optional)
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
+  // const userDetails = {
+  //   name: "John Doe",
+  //   email: "john.doe@example.com",
+  // };
 
-connectDB();
-const corsOptions = {
-  origin: process.env.ACCEPT_URL,
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true, // Allow cookies to be sent with requests
+  // const paymentDetails = {
+  //   paymentId: "pay_1234567890abcdef",
+  //   receipt: "receipt_12345",
+  //   amount: 50000, // Razorpay uses paise; divide by 100 for INR
+  //   date: "2025-01-07T10:30:00Z",
+  // };
+  return (
+    <div className="app">
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<AddToCart />} />
+        <Route path="/pay-direct" element={<Paydirect />} />
+        <Route path="/terms-conditions" element={<TermsAndCondition />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/success" element={<PaymentSuccessPage />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        //adil
+        {/* <Route path="/failed" element={<FailedPaymentPage />} /> */}
+      </Routes>
+    </div>
+  );
 };
 
-// Middleware
-app.use(cookieParser());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(session);
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(cors(corsOptions));
-// Routes
-app.use("/auth", authRoutes);
-
-app.use("/otp", otpRoutes);
-
-app.use("/admin", userRoutes);
-
-app.use("/courses", courseRoutes);
-
-app.use("/payment", protectedMiddleware.authenticateUser, paymentRoutes);
-
-// Start Server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+export default App;
